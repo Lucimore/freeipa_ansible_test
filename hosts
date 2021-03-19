@@ -1,0 +1,12 @@
+[all]
+192.168.1.226
+[all:vars]
+ansible_connection = ssh
+ansible_user = root
+ansible_ssh_pass = root65
+
+
+hostgroup_name = my-test-group-42
+ipa_server = ipa.linuxtechi.lan
+ipa_server_principal = admin
+ipa_server_password = "12345678"

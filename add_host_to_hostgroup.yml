@@ -1,0 +1,17 @@
+---
+- name: Test freeipa
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Add host to hostgroup
+    community.general.ipa_hostgroup:
+      #state: enabled - не создаст группу, если её не существует, соответсвенно хост будет без группы
+      state: present  # создаст группу в любом случае. Опечатка -> новая группа.
+      name: "{{ hostgroup_name  }}"
+      host:
+      - "{{ ansible_hostname }}"
+      ipa_host: "{{ ipa_server }}"
+      ipa_user: "{{ ipa_server_principal }}"
+      ipa_pass: "{{ ipa_server_password }}"
+    when: hostgroup_name is defined
