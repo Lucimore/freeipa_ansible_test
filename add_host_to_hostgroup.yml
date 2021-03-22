@@ -6,9 +6,9 @@
   tasks:
   - name: Add host to hostgroup
     community.general.ipa_hostgroup:
-      #state: enabled - не создаст группу, если её не существует, соответсвенно, при опечатке хост будет без группы
+      #state: enabled - не создаст группу, если её не существует, соответственно, при опечатке хост будет без группы
       state: present  # создаст группу в любом случае. Опечатка -> новая группа.
-      name: "{{ hostgroup_name  }}"
+      name: "{{ ipa_hostgroup_name  }}"
       host:
       - "{{ ansible_hostname }}"
       ipa_host: "{{ ipa_server }}"
