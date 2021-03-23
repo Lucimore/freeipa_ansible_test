@@ -14,4 +14,4 @@
       ipa_host: "{{ ipa_server }}"
       ipa_user: "{{ ipa_server_principal }}"
       ipa_pass: "{{ ipa_server_password }}"
-    when: hostgroup_name is defined
+    when: ipa_hostgroup_name is defined
